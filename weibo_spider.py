@@ -16,8 +16,14 @@ def get_spider_config():
     with open('spider_config.json', encoding='utf-8') as fp:
         spider_config = json.load(fp)
         basic_setting = spider_config['basic_setting']
-        crawl_by_user_setting = spider_config['crawl_by_user_setting']
-        crawl_by_keyword_setting = spider_config['crawl_by_keyword_setting']
+        try:
+            crawl_by_user_setting = spider_config['crawl_by_user_setting']
+        except:
+            crawl_by_user_setting = None
+        try:
+            crawl_by_keyword_setting = spider_config['crawl_by_keyword_setting']
+        except:
+            crawl_by_keyword_setting = None
     return basic_setting, crawl_by_user_setting, crawl_by_keyword_setting
 
 
